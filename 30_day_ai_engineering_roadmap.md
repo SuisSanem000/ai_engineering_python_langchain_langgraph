@@ -69,16 +69,16 @@ graph LR
 
 | # | Course | Platform | Hours | Certificate |
 |---|--------|----------|-------|-------------|
-| 1 | Pandas | Kaggle | 4h | ✅ Free |
-| 2 | Intro to Machine Learning | Kaggle | 3h | ✅ Free |
-| 3 | Prompt Engineering for Developers | DeepLearning.AI | 1.5h | ✅ Free |
-| 4 | Building Systems with the ChatGPT API | DeepLearning.AI | 2h | ✅ Free |
-| 5 | LangChain: Chat with Your Data | DeepLearning.AI | 2.5h | ✅ Free |
-| 6 | Building & Evaluating Advanced RAG | DeepLearning.AI | 2h | ✅ Free |
-| 7 | Functions, Tools & Agents with LangChain | DeepLearning.AI | 3h | ✅ Free |
-| 8 | Introduction to LangChain | LangChain Academy | 6h | ✅ Free |
-| 9 | Introduction to LangGraph | LangChain Academy | 6h | ✅ Free |
-| 10 | Google AI Essentials | Coursera (Google) | ~10h | ✅ Free (audit) |
+| 1 | [Pandas](https://www.kaggle.com/learn/pandas) | Kaggle | 4h | ✅ Free |
+| 2 | [Intro to Machine Learning](https://www.kaggle.com/learn/intro-to-machine-learning) | Kaggle | 3h | ✅ Free |
+| 3 | [Prompt Engineering for Developers](https://learn.deeplearning.ai/courses/chatgpt-prompt-eng) | DeepLearning.AI | 1.5h | ✅ Free |
+| 4 | [Building Systems with the ChatGPT API](https://learn.deeplearning.ai/courses/chatgpt-building-system) | DeepLearning.AI | 2h | ✅ Free |
+| 5 | [LangChain: Chat with Your Data](https://learn.deeplearning.ai/courses/langchain-chat-with-your-data) | DeepLearning.AI | 2.5h | ✅ Free |
+| 6 | [Building & Evaluating Advanced RAG](https://learn.deeplearning.ai/courses/building-evaluating-advanced-rag) | DeepLearning.AI | 2h | ✅ Free |
+| 7 | [Functions, Tools & Agents with LangChain](https://learn.deeplearning.ai/courses/functions-tools-agents-langchain) | DeepLearning.AI | 3h | ✅ Free |
+| 8 | [Introduction to LangChain](https://academy.langchain.com/courses/intro-to-langchain) | LangChain Academy | 6h | ✅ Free |
+| 9 | [Introduction to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph) | LangChain Academy | 6h | ✅ Free |
+| 10 | [Google AI Essentials](https://www.coursera.org/learn/google-ai-essentials) | Coursera (Google) | ~10h | ✅ Free (audit) |
 
 **Target: 9–10 certificates by Day 30**
 
