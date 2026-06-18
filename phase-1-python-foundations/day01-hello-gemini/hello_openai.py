@@ -19,8 +19,12 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 PROMPT = "What is an LLM? Explain in exactly 3 bullet points."
 
+# OpenAI Client endpoint execution. Note the structural requirements:
+# 1. API Call: client.chat.completions.create is the standard endpoint.
+# 2. Messages Array: A list of dict payloads representing sequential conversation turns.
+# 3. Roles: "system" defines instruction behavior; "user" passes the current prompt.
 response = client.chat.completions.create(
-    model="gpt-4o-mini",   # cheapest capable OpenAI model — fine for all exercises
+    model="gpt-4o-mini",   # cheapest capable OpenAI model — ideal for learning exercises
     messages=[
         {
             "role": "system",
@@ -31,8 +35,8 @@ response = client.chat.completions.create(
         },
         {"role": "user", "content": PROMPT},
     ],
-    temperature=0.3,        # low temp = more deterministic, better for factual tasks
-    max_tokens=300,
+    temperature=0.3,        # controls randomness: 0.0 is deterministic, 1.0 is creative. 0.3 ensures factual stability.
+    max_tokens=300,         # hard cut-off limit on generated tokens to manage API cost exposure.
 )
 
 print("=" * 50)

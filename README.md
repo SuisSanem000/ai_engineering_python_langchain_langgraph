@@ -8,7 +8,7 @@ Built with Python, LangChain, LangGraph, FastAPI, Firebase, and the Google Gemin
 ## 🗂️ Repository Structure
 
 ```
-me_and_google_ai/
+ai_engineering_python_langchain_langgraph/
 ├── _docs/                        # Roadmaps, planning docs, task lists
 ├── phase-1-python-foundations/   # Days 1–6:  Python for AI, embeddings, Hugging Face
 ├── phase-2-langchain-rag/        # Days 7–16: LangChain, RAG pipeline, FastAPI
@@ -52,8 +52,8 @@ me_and_google_ai/
 
 ```bash
 # Clone and set up environment
-git clone https://github.com/SuisSanem000/me_and_google_ai.git
-cd me_and_google_ai
+git clone https://github.com/SuisSanem000/ai_engineering_python_langchain_langgraph.git
+cd ai_engineering_python_langchain_langgraph
 
 # Copy the env template and fill in your keys
 cp .env.example .env

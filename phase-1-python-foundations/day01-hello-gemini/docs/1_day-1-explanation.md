@@ -1,81 +1,91 @@
-Let me first see what's in the project directory and read the Day 1 tasks from the roadmap.
+# Day 1 — Environment Setup & First API Calls
 
-Listed directory me_and_google_ai
-Viewed 30_day_ai_engineering_roadmap.md:168-225
-Viewed 30_day_ai_engineering_roadmap.md:225-295
-
-Good. I have everything I need. Now let me build the full folder structure and all Day 1 files.
-
-Ran command: `mkdir _docs; mkdir phase-1-python-foundations; mkdir phase-1-python-foundations\day01-hello-gemini; mkdir phase-1-python-foundations\day02-embeddings; mkdir phase-1-python-foundations\day03-pandas-ml; mkdir phase-1-python-foundations\day04-prompt-engineering; mkdir phase-1-python-foundations\day05-llm-pipeline; mkdir phase-1-python-foundations\day06-huggingface; mkdir phase-2-langchain-rag; mkdir phase-2-langchain-rag\day07-langchain-intro; mkdir phase-2-langchain-rag\day08-langchain-classifier; mkdir phase-2-langchain-rag\day09-memory-chatbot; mkdir phase-2-langchain-rag\day10-rag-chunking; mkdir phase-2-langchain-rag\day11-rag-vectorstore; mkdir phase-2-langchain-rag\day12-rag-chatbot; mkdir phase-2-langchain-rag\day13-rag-evaluation; mkdir phase-2-langchain-rag\day14-advanced-rag; mkdir phase-2-langchain-rag\day15-16-rag-fastapi; mkdir phase-3-agents-google; mkdir phase-3-agents-google\day17-langgraph-basics; mkdir phase-3-agents-google\day18-19-research-agent; mkdir phase-3-agents-google\day20-langsmith; mkdir phase-3-agents-google\day21-multimodal; mkdir phase-3-agents-google\day22-firebase-genkit; mkdir phase-3-agents-google\day23-firestore-vector; mkdir phase-3-agents-google\day24-web-frontend; mkdir phase-4-deploy; mkdir phase-4-deploy\day25-docker-cloudrun`
-
-Good. Now move the docs and create all the files simultaneously:
-
-Ran command: `Move-Item "30_day_ai_engineering_roadmap.md" "_docs\"; Move-Item "daily_task_lists.md" "_docs\"`
-
-Now create all the files — root README, .gitignore, Day 1 code:
-
-Created README.md
-Created .gitignore
-Created .env.example
-
-Now the Day 1 code files:
-
-Created requirements.txt
-Created hello_gemini.py
-Created hello_openai.py
-Created main.py
-Created README.md
-
-Now commit everything:
-
-Ran command: `git add .; git commit -m "Day 1: scaffold full project structure, move docs to _docs/, add root README + .gitignore + .env.example, implement hello_gemini + hello_openai + comparison main.py"; git push`
-
-All done and pushed. Here's the complete picture:
+Welcome to Day 1 of your 30-day AI Engineering journey. This document provides a high-level conceptual summary of our architectural layout, dependencies, and environment setup for today's learning.
 
 ---
 
-## Repository Structure
+## 📅 High-Level Learning Goals
+Before starting to code, make sure to read the following conceptual documents located in this directory:
+1. **What is an LLM?** (Read: [2_what-is-a-large-language-model.md](file:///d:/projects/ai_engineering_python_langchain_langgraph/phase-1-python-foundations/day01-hello-gemini/docs/2_what-is-a-large-language-model.md)) — Establishes how deep neural network architectures (specifically transformers using self-attention mechanisms) enable text generation.
+2. **What are Tokens?** (Read: [3_what-are-tokens.md](file:///d:/projects/ai_engineering_python_langchain_langgraph/phase-1-python-foundations/day01-hello-gemini/docs/3_what-are-tokens.md)) — Understand how textual data is processed in sub-word chunks and how prompt formatting affects tokenization and cost.
 
-```
-me_and_google_ai/
-├── .env.example                          ← key template — commit this, never .env
-├── .gitignore                            ← Python, venv, .env, ChromaDB, Node, Docker
-├── README.md                             ← project index with progress tracker
-├── _docs/
+---
+
+## 📂 Repository Structure
+
+The project has been organized into a modular scaffolding to support the entire 30-day curriculum:
+
+```text
+ai_engineering_python_langchain_langgraph/
+├── .env.example                          ← template for local credentials (never commit .env)
+├── .gitignore                            ← excludes Python venv, .env, ChromaDB, Node, Docker
+├── README.md                             ← root project index and daily progress tracker
+├── _docs/                                ← documentation and roadmaps
 │   ├── 30_day_ai_engineering_roadmap.md
 │   └── daily_task_lists.md
 ├── phase-1-python-foundations/
-│   ├── day01-hello-gemini/               ← TODAY ✅
-│   │   ├── hello_gemini.py
-│   │   ├── hello_openai.py
-│   │   ├── main.py
-│   │   ├── requirements.txt
-│   │   └── README.md
-│   ├── day02-embeddings/
-│   ├── day03-pandas-ml/
-│   ├── day04-prompt-engineering/
-│   ├── day05-llm-pipeline/
-│   └── day06-huggingface/
-├── phase-2-langchain-rag/                ← Days 7–16
-├── phase-3-agents-google/               ← Days 17–24
-└── phase-4-deploy/                      ← Day 25
+│   └── day01-hello-gemini/               ← Day 1 Project Directory
+│       ├── docs/                         ← Day 1 notes and explanations
+│       │   ├── 1_day-1-explanation.md    ← This file
+│       │   ├── 2_what-is-a-large-language-model.md
+│       │   └── 3_what-are-tokens.md
+│       ├── hello_gemini.py               ← Direct Gemini API implementation
+│       ├── hello_openai.py               ← Direct OpenAI API implementation
+│       ├── main.py                       ← Comparative latency & token benchmarking script
+│       └── requirements.txt              ← Python dependency list (generativeai, openai, dotenv)
 ```
 
 ---
 
-## Day 1 Implementation Notes
+## ⚙️ Running the Day 1 Code
 
-**3 files, each with a distinct purpose:**
+Execute all setup commands from the repository root:
 
-- **`hello_gemini.py`** — raw Gemini SDK. Note `system_instruction` is set at model init (not per-call), and `usage_metadata` gives you token counts on every response
-- **`hello_openai.py`** — OpenAI client. Uses the `messages` array pattern with explicit `system`/`user` roles. `temperature=0.3` keeps factual responses deterministic
-- **`main.py`** — the interesting one. Wraps both in `time.perf_counter()` blocks to compare latency and token cost on the same prompt. This pattern scales into Day 14's Pinecone comparison and Day 13's RAGAS eval runs
+### 1. Environment Setup
+Create a virtual environment at the repository root and activate it:
+```powershell
+# Create venv
+python -m venv .venv
 
-**To run it, just do:**
-```bash
-cd phase-1-python-foundations/day01-hello-gemini
-python -m venv .venv && .venv\Scripts\activate
-pip install -r requirements.txt
-# Add your keys to root .env, then:
-python main.py
+# Activate venv (Windows PowerShell)
+.venv\Scripts\activate
+
+# Install requirements
+pip install -r phase-1-python-foundations/day01-hello-gemini/requirements.txt
 ```
+
+### 2. Configure Credentials
+Copy `.env.example` to `.env` and enter your API keys:
+```powershell
+cp .env.example .env
+```
+Inside your `.env` file, populate your key:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+*(Leave other API keys blank for now. The benchmarking script is designed to run fine and skip any missing models).*
+
+### 3. Run the Scripts
+```powershell
+# Run the comparative runner
+python phase-1-python-foundations/day01-hello-gemini/main.py
+
+# Or run the individual client scripts
+python phase-1-python-foundations/day01-hello-gemini/hello_gemini.py
+```
+
+---
+
+## 🧠 Architectural Concepts
+
+* **Comparative Benchmarking:** The runner (`main.py`) evaluates how different underlying models answer the same instructions. This side-by-side verification helps developers evaluate API latency and tokenization costs to select the most optimal models.
+* **Direct SDK Usage:** Calling raw API platforms directly teaches you the baseline message-passing payload patterns (Google AI Studio's `generate_content` and OpenAI's `chat.completions`) before we abstract them behind LangChain in Phase 2.
+* **Code Implementation Comments:** Specific configuration variables, SDK classes, parameters (e.g. `temperature`, `system_instruction` initialization, and token calculation API details) are documented directly inside the code scripts (`hello_gemini.py`, `hello_openai.py`, and `main.py`).
+
+---
+
+## 💡 Quota & Regional Settings (EEA Developers)
+
+If your Google AI Studio API requests fail with a `429 Quota Exceeded (limit: 0)` error:
+* **The AQ. Key Format:** Google AI Studio keys generated now default to the `AQ.` prefix. This is the new authentic developer key format and is correct.
+* **EEA Regional Block:** Due to data regulations in the European Economic Area (EEA) and UK, the free tier is unavailable. To lift the zero limit, you must link an active payment method in the [Google Cloud Console Billing Page](https://console.cloud.google.com/billing) for the project (`crypto-snow-426714-f1`). Developer API runs cost only fractions of a cent, but billing connection is required.

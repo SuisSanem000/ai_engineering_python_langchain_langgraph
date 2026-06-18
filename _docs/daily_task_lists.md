@@ -19,7 +19,7 @@
 - [x] Go to [Google AI Studio](https://aistudio.google.com/) and get your Gemini API key
 - [/] Read [What is an LLM?](https://www.cloudflare.com/learning/ai/what-is-a-large-language-model/) (~30 min)
 - [/] Read [What is a token?](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them) (~15 min)
-- [x] Create a GitHub repo named `ai-engineering-journey`
+- [x] Create a GitHub repo named `ai_engineering_python_langchain_langgraph`
 - [x] Create a Python virtual environment inside the repo
 - [x] Run `pip install google-generativeai python-dotenv openai`
 - [x] Create a `.env` file and store your Gemini API key in it
@@ -586,7 +586,7 @@
 - [ ] Do a live demo check: demo your RAG chatbot → FastAPI → deployed Cloud Run URL in under 3 minutes
 - [ ] If anything breaks during the demo, fix it now
 - [ ] Do a final README pass on your top 3 repos — fix any gaps
-- [ ] Write a personal note in your `ai-engineering-journey` README: what you built, what you learned, what's next
+- [ ] Write a personal note in your `ai_engineering_python_langchain_langgraph` README: what you built, what you learned, what's next
 - [ ] Post a "Day 30" LinkedIn update
 - [ ] Decide your next project — pick one:
   - [ ] Multi-agent workflow: one agent researches, one writes, one reviews

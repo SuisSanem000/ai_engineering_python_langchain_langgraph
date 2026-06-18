@@ -29,7 +29,7 @@ Knowing the raw API first means you're never blindly trusting the abstraction.
 
 ## Setup
 
-From the repository root (`d:\projects\me_and_google_ai`), initialize the project environment and run the scripts:
+From the repository root (`d:\projects\ai_engineering_python_langchain_langgraph`), initialize the project environment and run the scripts:
 
 ### 1. Configure Secrets
 Copy the template and fill in your keys:

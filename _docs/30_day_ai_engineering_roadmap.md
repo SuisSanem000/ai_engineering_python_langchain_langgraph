@@ -5,6 +5,26 @@
 
 ---
 
+## 🛠️ Daily Execution Protocol: How to Start the Day
+
+When starting a daily coding session (e.g., "let's implement Day X tasks"), the following protocol must be followed:
+
+1. **Task List Alignment:**
+   - Add the specific calendar date to the Day heading in `daily_task_lists.md` (e.g., `Day X (YYYY-MM-DD) — ...`).
+   - Set the day's status to `> **Status:** Code and setup implemented; user is currently studying the concepts.` (or in-progress/completed details).
+2. **Local Development First:**
+   - Create and configure the necessary scripts, libraries, and venvs locally.
+   - Do **not** push anything to GitHub automatically; the user will review and push files manually when they are ready.
+3. **API Key & Billing Configurations:**
+   - Maintain all developer secrets in a local, git-ignored `.env` file.
+   - For Google AI Studio, recognize that keys generated will start with the `AQ.` prefix.
+   - Note that developers in the EEA/UK region require a Google Cloud Console billing account linked to the GCP project (`crypto-snow-426714-f1`) to resolve `limit: 0` / 429 quota blockages.
+4. **Code vs. Documentation Split:**
+   - **In Code Files:** Keep all script-specific technical details, parameter definitions (e.g., temperature settings, models), client configurations, and code implementation notes as **comments within the code files**.
+   - **In Explanation Files (`docs/X_day-X-explanation.md`):** Keep these strictly high-level. Document core conceptual definitions (e.g., What are tokens?, What is RAG?), architectural reasoning, general system design decisions, and what to study.
+
+---
+
 ## 🧭 Philosophy: What This Roadmap Is (and Isn't)
 
 This is **not** a machine learning research roadmap. You will **not** train models from scratch, tune neural networks, or touch PyTorch deeply.
@@ -225,7 +245,7 @@ graph LR
 - Read: [What is a token?](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them) (~15 min)
 
 **Build (2.5h):**
-- Create a Python virtual environment and a GitHub repo `ai-engineering-journey`
+- Create a Python virtual environment and a GitHub repo `ai_engineering_python_langchain_langgraph`
 - Write `hello_gemini.py` — calls the Gemini API with a prompt, prints the response
 - Store your API key in `.env`, load with `python-dotenv`
 - **Bonus:** Also sign up for a free [OpenAI API account](https://platform.openai.com/) — even $5 of credits is enough for the whole roadmap
@@ -636,7 +656,7 @@ pip install duckduckgo-search langchain-community
 import os
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = "your-langsmith-key"
-os.environ["LANGCHAIN_PROJECT"] = "ai-engineering-journey"
+os.environ["LANGCHAIN_PROJECT"] = "ai_engineering_python_langchain_langgraph"
 ```
 
 - Run both apps, then open LangSmith UI and explore traces
@@ -826,7 +846,7 @@ Practice these out loud — record yourself, then watch it back:
 **Build + Reflect (4h):**
 - Live demo check: can you demo your RAG chatbot + FastAPI + deployed Cloud Run URL in under 3 minutes?
 - Final README pass on your top 3 repos
-- Write a personal note in your `ai-engineering-journey` README: what you built, what you learned, what's next
+- Write a personal note in your `ai_engineering_python_langchain_langgraph` README: what you built, what you learned, what's next
 - Post a "Day 30" LinkedIn update
 - Plan your next project:
   - Multi-agent workflow: one agent researches, one writes, one reviews
